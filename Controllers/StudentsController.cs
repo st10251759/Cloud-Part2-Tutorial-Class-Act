@@ -20,26 +20,29 @@ namespace StudentApp.Controllers
         }
 
         // GET: Students
+        //returning index view
         public async Task<IActionResult> Index()
         {
+            //going to list everything and return it
             return View(await _context.Student.ToListAsync());
         }
 
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            //check if the id is not null - validation
             if (id == null)
             {
                 return NotFound();
             }
-
+            //pass details into view - getting where student id = details are passed
             var student = await _context.Student
                 .FirstOrDefaultAsync(m => m.StudentId == id);
             if (student == null)
             {
                 return NotFound();
             }
-
+            //this is passing the details into view - details view
             return View(student);
         }
 
