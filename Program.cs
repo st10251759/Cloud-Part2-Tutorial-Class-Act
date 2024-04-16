@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using StudentApp.Data;
 namespace StudentApp
 {
     public class Program
@@ -5,6 +8,8 @@ namespace StudentApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<StudentAppContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("StudentAppContext") ?? throw new InvalidOperationException("Connection string 'StudentAppContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
