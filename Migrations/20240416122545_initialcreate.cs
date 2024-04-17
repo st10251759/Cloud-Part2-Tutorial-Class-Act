@@ -3,7 +3,7 @@
 #nullable disable
 //Migrations controls what happening with database
 
-//add-migration (name of migration)
+//add-migration (name of migration in one wordS)
 //update-database
 namespace StudentApp.Migrations
 {
