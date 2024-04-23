@@ -15,5 +15,7 @@ namespace StudentApp.Data
         }
 
         public DbSet<StudentApp.Models.Student> Student { get; set; } = default!;
+        public DbSet<StudentApp.Models.Course> Course { get; set; } = default!;
+        public DbSet<StudentApp.Models.Enrollment> Enrollment { get; set; } = default!;
     }
 }
